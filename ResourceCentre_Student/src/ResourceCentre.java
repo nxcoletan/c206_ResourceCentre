@@ -293,12 +293,28 @@ public class ResourceCentre {
 
 	public static boolean doReturnChromebook(ArrayList<Chromebook> chromebookList,String tag){
 		boolean isReturned = false;
+		for(Chromebook temp : chromebookList){
+			if(temp.getAssetTag().contains(tag)){
+				temp.setIsAvailable(true);
+				isReturned = true;
+				break;
+			}
+		}
 		// write your code here
 		return isReturned;
 	}
 	
 	
 	public static void returnChromebook(ArrayList<Chromebook> chromebookList) {
+		ResourceCentre.viewAllChromebook(chromebookList);
+		String tag = Helper.readString("Enter asset tag > ");
+		Boolean isReturned = doReturnChromebook(chromebookList, tag);
+		
+		if (isReturned == false) {
+			System.out.println("Invalid asset tag");
+		} else {
+			System.out.println("Chromebook " + tag + " returned");
+		}
 		
 	
 	}
