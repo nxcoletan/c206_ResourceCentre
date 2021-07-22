@@ -296,6 +296,7 @@ public class ResourceCentre {
 		for(Chromebook temp : chromebookList){
 			if(temp.getAssetTag().contains(tag)){
 				temp.setIsAvailable(true);
+				temp.setDueDate("");
 				isReturned = true;
 				break;
 			}
