@@ -294,7 +294,7 @@ public class ResourceCentre {
 	public static boolean doReturnChromebook(ArrayList<Chromebook> chromebookList,String tag){
 		boolean isReturned = false;
 		for(Chromebook temp : chromebookList){
-			if(temp.getAssetTag().contains(tag)){
+			if(temp.getAssetTag().equals(tag)){
 				temp.setIsAvailable(true);
 				temp.setDueDate("");
 				isReturned = true;
